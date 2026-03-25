@@ -1,5 +1,7 @@
 # 改进的灰狼优化算法（Enhanced Grey Wolf Optimizer for GP）
 
+**English:** [README.en.md](README.en.md)
+
 ## 概述
 
 这是一个专门为遗传规划（Genetic Programming）设计的改进灰狼优化算法。该算法结合了分阶段动态策略、自适应机制和智能选择，旨在提升拟合时间和性能。

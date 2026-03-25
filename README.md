@@ -1,101 +1,95 @@
-# 遗传规划（GP）模型工具
+# Genetic Programming (GP) Modeling Toolkit
 
-## 功能说明
+**中文说明：** [README.zh.md](README.zh.md)
 
-该工具用于使用遗传规划（Genetic Programming, GP）算法进行符号回归，支持多种初始化策略、选择策略、交叉策略和变异策略。工具支持LLM引导的初始化、动态分支扩展、残差拟合等高级功能。
+## Overview
 
-## 文件结构
+This toolkit performs symbolic regression with Genetic Programming (GP). It supports multiple initialization, selection, crossover, and mutation strategies, as well as advanced features such as LLM-guided initialization, dynamic branch expansion with High primitives, and residual fitting.
+
+## Repository layout
 
 ```
-Gps/
-├── main.py                    # 主程序入口
-├── gp_config_builder.py       # GP配置构建器
-├── executor/                  # 执行器模块
-│   ├── gp_executor.py         # GP执行器
-│   ├── gp_evolution.py        # 进化循环
-│   ├── gp_system_setup.py     # 系统设置
-│   └── gp_data_loader.py      # 数据加载
-├── strategies/                # 策略模块
-│   ├── initialization/        # 初始化策略
-│   ├── selection/             # 选择策略
-│   ├── crossover/             # 交叉策略
-│   ├── mutation/              # 变异策略
-│   ├── function_set/          # 函数集策略
-│   └── high_function/         # High函数策略
-└── utils/                     # 工具模块
-    ├── gp_utils/              # GP工具函数
-    ├── evolution_data_saver/  # 进化数据保存
-    └── evolution_visualization/ # 可视化工具
+.
+├── main.py                    # Entry point
+├── gp_config_builder.py       # Builds the GP configuration object
+├── executor/                  # Execution layer
+│   ├── gp_executor.py         # GP orchestration
+│   ├── gp_evolution.py        # Evolution loop
+│   ├── gp_system_setup.py     # Primitives, toolbox, operators
+│   └── gp_data_loader.py      # Data loading
+├── strategies/                # Strategy definitions
+│   ├── initialization/
+│   ├── selection/
+│   ├── crossover/
+│   ├── mutation/
+│   ├── function_set/
+│   └── high_function/
+├── Baseline_models/           # Baseline regressors (used by main pipeline)
+├── Dataset_split/             # Dataset split + KS diagnostics + data_config
+└── utils/                     # Utilities
+    ├── gp_utils/
+    ├── evolution_data_saver/
+    ├── evolution_visualization/
+    ├── feature_importance/
+    └── llm_new_feature/
 ```
 
-## 使用方法
+## Quick start
 
-### 1. 配置参数
-
-在 `main.py` 中修改以下参数：
-
-```python
-# 数据配置文件路径
-data_config_path = "path/to/data_config.json"
-
-# GP配置
-gp_config_dict = {
-    "population_size": 100,
-    "generations": 50,
-    "initialization": {...},
-    "function_set": {...},
-    "high_function": {...},
-    ...
-}
-
-# 随机种子列表
-random_seeds = [1, 2, 3]
-```
-
-### 2. 运行程序
+### 1. Environment
 
 ```bash
-cd Gps
+pip install -r requirements.txt
+```
+
+Install PyTorch and optional Graphviz bindings as described in `requirements.txt` if you use DNN baselines/residuals or PDF tree rendering.
+
+### 2. Configure
+
+Edit `main.py`:
+
+- `data_config_path` — JSON produced under `Dataset_split/dataset_onfiguration/...`
+- `gp_config_dict` — population size, generations, operators, `high_function`, `residual_fitting`, `baseline`, `shap`, etc.
+- `random_seeds` — one full run per seed × target column
+
+### 3. Run
+
+From the repository root:
+
+```bash
 python main.py
 ```
 
-## 输出说明
+If `output_dir_name` is set in code (e.g. `配置`), results are written under that folder next to the project root; otherwise a timestamped `gps_result_*` directory is used.
 
-程序会在 `gps_result_{时间戳}/` 目录下为每个目标列创建独立的文件夹，每个文件夹包含：
+## Outputs
 
-- **进化过程JSON**: `evolution_process/{random_seed}_{target_name}.json`
-- **数据集信息JSON**: `evolution_process/dataset_info_{target_name}.json`
-- **最佳树可视化**: `best_tree_visualization/{random_seed}_{target_name}.pdf`
-- **进化结果文本**: `evo_result.txt`
+For each target column, the run creates a dedicated folder containing:
 
-### 文件夹命名规则
+- **Evolution JSON:** `evolution_process/{random_seed}_{target_name}.json`
+- **Dataset info JSON:** `evolution_process/dataset_info_{target_name}.json`
+- **Best-tree visualization:** `best_tree_visualization/{random_seed}_{target_name}.pdf`
+- **Evolution log:** `evo_result.txt`
 
-`gps_result_{时间戳}/{目标列名}/`
+### Folder naming
 
-例如：`gps_result_20251204_144946/Ash_Deformation/`
+`{output_root}/{target_column}/` (e.g. `配置/Ash_Deformation/` when using a fixed output name).
 
-## 主要功能
+## Key features
 
-- **多种初始化策略**: 支持随机初始化和LLM引导初始化
-- **动态分支扩展**: 在进化过程中动态添加High函数分支
-- **残差拟合**: 使用RandomForest或RidgeCV拟合残差，提升模型性能
-- **完整结果保存**: 保存每一代的详细进化信息
-- **树可视化**: 自动生成最佳个体的树结构可视化
+- **Initialization:** Random and/or LLM-derived seeds (via JSON feature files).
+- **Dynamic expansion:** Add High-function branches during evolution when enabled.
+- **Residual fitting:** Stacking residual models (e.g. forest, boosting, DNN) on top of the symbolic model.
+- **Rich logging:** Per-generation statistics and artifacts.
+- **Tree visualization:** Exports the best individual’s structure (Graphviz/pygraphviz when available).
 
-## 依赖库
+## Dependencies (summary)
 
-- deap
-- numpy
-- pandas
-- scikit-learn
-- matplotlib
-- xgboost
-- lightgbm
+Core stack includes **DEAP**, **NumPy**, **pandas**, **scikit-learn**, **matplotlib**, **XGBoost**, **LightGBM**, **CatBoost**, **SHAP**, and optional **PyTorch** — see `requirements.txt` for pinned versions and notes.
 
-## 注意事项
+## Notes
 
-1. 确保数据配置文件路径正确
-2. 如果使用LLM初始化，需要提供LLM特征文件路径
-3. 随机种子列表的长度决定了运行次数（每个种子 × 每个目标列）
-4. 所有路径支持相对路径和绝对路径
-
+1. Ensure `data_config` paths point to existing train/test CSV files (paths in JSON can be relative to the config file).
+2. For LLM initialization with non-zero ratio, provide valid `llm_feature_path` JSON files.
+3. Total runs = number of random seeds × number of target columns.
+4. Relative and absolute paths are supported throughout.
