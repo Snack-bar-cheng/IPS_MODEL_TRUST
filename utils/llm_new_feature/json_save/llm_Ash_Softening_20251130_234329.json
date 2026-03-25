@@ -1,0 +1,3875 @@
+{
+  "target_name": "Ash_Softening",
+  "feature_names": [
+    "SiO2",
+    "Al2O3",
+    "Fe2O3",
+    "CaO",
+    "MgO",
+    "Na2O",
+    "K2O",
+    "TiO2",
+    "SO3",
+    "Si",
+    "Al",
+    "Fe",
+    "Ca",
+    "Mg",
+    "Na",
+    "K",
+    "Ti",
+    "TS",
+    "GSAsh",
+    "GSAsh_Dry",
+    "Standard_Ash",
+    "MnO"
+  ],
+  "num_features": 300,
+  "generated_at": "20251130_234329",
+  "features": [
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "CaO",
+          "SiO2"
+        ]
+      },
+      "description": "石灰对二氧化硅的基本度比，反映碱性氧化物对酸性骨架的破坏能力；基本度高通常降低灰熔温度。",
+      "notation": "CaO / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "SiO2"
+        ]
+      },
+      "description": "铁氧化物与二氧化硅的比值，体现Fe作为助熔相对硅酸盐骨架的比例，Fe富集常促进低温液相生成。",
+      "notation": "Fe₂O₃ / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Al2O3",
+          "SiO2"
+        ]
+      },
+      "description": "铝硅比，刻画铝硅酸盐聚合度；Al₂O₃相对增加通常提升灰的耐火性、抬升软化温度。",
+      "notation": "Al₂O₃ / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "SiO2"
+        ]
+      },
+      "description": "钠碱与二氧化硅的比值，反映碱金属对硅酸盐网络的改性强度；Na富集往往显著降低软化温度。",
+      "notation": "Na₂O / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K2O",
+          "SiO2"
+        ]
+      },
+      "description": "钾碱与二氧化硅的比值，衡量K对硅酸盐网络的破坏与低温液相形成潜势。",
+      "notation": "K₂O / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "CaO",
+          "Al2O3"
+        ]
+      },
+      "description": "Ca对Al的相对比，反映CaO对铝酸盐耐火性的稀释与通熔作用。",
+      "notation": "CaO / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "CaO"
+        ]
+      },
+      "description": "硫酸根与石灰的配比，指示硫酸盐化倾向（CaSO₄等）相对CaO缓冲能力，影响低温共熔相形成。",
+      "notation": "SO₃ / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TS",
+          "Ca"
+        ]
+      },
+      "description": "全硫与元素钙的比值，刻画燃烧过程中硫与钙的中和与固硫潜力，对低熔点硫酸盐生成敏感。",
+      "notation": "TS / Ca",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Na2O",
+          "K2O"
+        ]
+      },
+      "description": "总碱金属含量（Na₂O+K₂O），是灰熔温度的重要降温因子，指示强助熔组分的总量。",
+      "notation": "Na₂O + K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "CaO",
+          "MgO"
+        ]
+      },
+      "description": "总碱土（CaO+MgO），体现基本度来源的主成分合计，对硅铝酸盐的通熔作用显著。",
+      "notation": "CaO + MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "SiO2",
+          "Al2O3"
+        ]
+      },
+      "description": "主要酸性氧化物总量（SiO₂+Al₂O₃），表示灰分骨架相与耐火性的总体水平，通常抬升软化点。",
+      "notation": "SiO₂ + Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "CaO"
+        ]
+      },
+      "description": "净酸度差（SiO₂−CaO），衡量酸性网络与主要基本度来源的差额，差值越大往往软化温度越高。",
+      "notation": "SiO₂ − CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Al2O3",
+          "Na2O"
+        ]
+      },
+      "description": "Al₂O₃对Na₂O的净优势，代表耐火相对强助熔组分的相对占比，值大通常意味着更高软化温度。",
+      "notation": "Al₂O₃ − Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "CaO",
+          "Fe2O3"
+        ]
+      },
+      "description": "CaO与Fe₂O₃的协同通熔强度（乘积近似表征联合作用规模），对低温液相形成敏感。",
+      "notation": "CaO × Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "Na2O",
+          "K2O"
+        ]
+      },
+      "description": "Na₂O与K₂O的协同效应指标（乘积），用于捕捉两种碱金属共同存在时的强烈助熔效应。",
+      "notation": "Na₂O × K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "GSAsh",
+          "GSAsh_Dry"
+        ]
+      },
+      "description": "灰分含量（干基/原样）的平均值，用作工况差异下灰基准水平的稳健代表，与熔融特性相关。",
+      "notation": "(GSAsh + GSAsh_Dry) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "SiO2"
+        ]
+      },
+      "description": "SiO₂的常用对数变换，压缩右偏分布，线性化其与软化温度的非线性关系（要求SiO₂>0）。",
+      "notation": "log₁₀(SiO₂)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "Standard_Ash"
+        ]
+      },
+      "description": "标准灰分的自然对数变换，缓解尺度效应并刻画灰分水平对熔融行为的非线性影响（要求>0）。",
+      "notation": "ln(Standard_Ash)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "Fe2O3"
+        ]
+      },
+      "description": "Fe₂O₃的平方根变换，用于减弱极端富铁样品的影响，匹配Fe助熔效应的次线性响应。",
+      "notation": "√Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "Na2O",
+          "K2O"
+        ]
+      },
+      "description": "主导碱金属强度（两者取大），反映由较强碱主导的最低熔温风险。",
+      "notation": "max(Na₂O, K₂O)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "CaO",
+          "Fe2O3"
+        ]
+      },
+      "description": "石灰与铁氧化物的比值，表征灰分中强碱性氧化物与两性/助熔氧化物的平衡；较高比值通常提升灰分的基本度、增加熔融温度。",
+      "notation": "CaO / Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MgO",
+          "Al2O3"
+        ]
+      },
+      "description": "氧化镁与氧化铝的比值，反映镁质与铝质耐火相的相对占比；较高比值可能促进尖晶石相形成，提高软化温度。",
+      "notation": "MgO / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "CaO"
+        ]
+      },
+      "description": "碱金属与碱土金属的比值，衡量强助熔组分（Na₂O）相对稳健基本组分（CaO）的强弱；高比值往往降低灰分软化温度。",
+      "notation": "Na₂O / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K2O",
+          "Al2O3"
+        ]
+      },
+      "description": "钾碱与氧化铝的比值，刻画助熔组分相对耐火骨架的强度；比值增大通常意味着更低的软化温度风险。",
+      "notation": "K₂O / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TiO2",
+          "Al2O3"
+        ]
+      },
+      "description": "二氧化钛与氧化铝的比值，反映钛相对铝相在灰分中的占比；该比值影响钛酸盐/尖晶石等高熔点相的生成，进而影响软化温度。",
+      "notation": "TiO₂ / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "Fe2O3"
+        ]
+      },
+      "description": "硫酸根与铁氧化物的比值，度量硫酸盐生成潜势与铁相的相互作用；较高比值可能促进低熔点硫酸盐相形成，降低软化温度。",
+      "notation": "SO₃ / Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "SiO2"
+        ]
+      },
+      "description": "氧化锰与二氧化硅的比值，代表基本/助熔相对酸性骨架的强弱；MnO相对SiO₂增大通常增强基本度、抬升熔融温度。",
+      "notation": "MnO / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Fe2O3",
+          "CaO"
+        ]
+      },
+      "description": "铁氧化物与石灰的总量，表征灰分中的主要助熔与基本组分合计含量；该合量增大通常降低熔融黏度、影响软化温度。",
+      "notation": "Fe₂O₃ + CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Na2O",
+          "CaO"
+        ]
+      },
+      "description": "钠碱与石灰的总量，衡量碱性与助熔效应的综合强度；该总量上升一般提升低熔点相比例、降低软化温度。",
+      "notation": "Na₂O + CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "Al2O3"
+        ]
+      },
+      "description": "二氧化硅减氧化铝，反映酸性骨架中硅相对铝相的过量程度；硅相过量有利于形成高黏度硅酸盐网络，提高软化温度。",
+      "notation": "SiO₂ − Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "CaO",
+          "MgO"
+        ]
+      },
+      "description": "石灰减氧化镁，区分钙质与镁质基本度贡献；CaO相对过量倾向形成低黏度钙硅酸盐，相对降低软化温度。",
+      "notation": "CaO − MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "Na2O",
+          "Fe2O3"
+        ]
+      },
+      "description": "钠碱与铁氧化物的乘积，用于刻画二者的协同助熔效应；Na₂O与Fe相常形成低熔点复合物，乘积增大通常降低软化温度。",
+      "notation": "Na₂O × Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "K2O",
+          "CaO"
+        ]
+      },
+      "description": "钾碱与石灰的乘积，表征碱性与助熔组分的交互强度；较高值指示更活跃的低熔点钙钾硅酸盐生成潜势。",
+      "notation": "K₂O × CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "CaO"
+        ]
+      },
+      "description": "石灰含量的平方根，用于引入非线性响应并缓解极端值影响；反映CaO对软化温度影响的边际递减特征。",
+      "notation": "√CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "Al2O3"
+        ]
+      },
+      "description": "氧化铝含量的平方，强调高铝耐火灰在高含量区间对软化温度的非线性抬升作用。",
+      "notation": "Al₂O₃²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "GSAsh"
+        ]
+      },
+      "description": "灰分（干基或工作基指标GSAsh）的自然对数，用于尺度压缩与稳定回归，反映总体灰分对熔融行为的影响。",
+      "notation": "ln(GSAsh)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "GSAsh_Dry"
+        ]
+      },
+      "description": "干基灰分的常用对数（log10），用于刻画干灰含量对软化温度的对数尺度关系。",
+      "notation": "log₁₀(GSAsh_Dry)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "CaO",
+          "MgO"
+        ]
+      },
+      "description": "石灰与氧化镁的最大值，代表主要基本氧化物的主导强度；较高的主导基本度通常抬升熔融温度。",
+      "notation": "max(CaO, MgO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "SiO2",
+          "Al2O3"
+        ]
+      },
+      "description": "二氧化硅与氧化铝的最小值，刻画酸性骨架中限制性组分的下限；最低的酸性支撑可能决定低熔点相的生成阈值。",
+      "notation": "min(SiO₂, Al₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "SO3",
+          "TS"
+        ]
+      },
+      "description": "硫酸根与总硫的均值，融合燃料硫与灰中硫酸盐的信号，用于表征硫相关低熔点盐类生成潜势对软化温度的影响。",
+      "notation": "(SO₃ + TS) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "Al2O3"
+        ]
+      },
+      "description": "铁氧化物与铝氧化物的比值，刻画强助熔组分（Fe₂O₃）相对耐火网络形成物（Al₂O₃）的占比。比值越大，灰渣中助熔相越占优势，通常对应较低的软化温度。",
+      "notation": "Fe₂O₃ / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MgO",
+          "SiO2"
+        ]
+      },
+      "description": "镁钙系基本氧化物相对硅酸根网络形成物的比例。MgO提高基本度并降低黏度，MgO/SiO₂越高，一般软化温度越低。",
+      "notation": "MgO / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "Al2O3"
+        ]
+      },
+      "description": "强助熔碱金属氧化物（Na₂O）相对耐火铝氧化物的比例，反映碱金属对铝硅网络的破坏程度。Na₂O/Al₂O₃升高，灰分更易熔融，软化温度趋降。",
+      "notation": "Na₂O / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "TiO2"
+        ]
+      },
+      "description": "铁氧化物相对钛氧化物的比值。TiO₂常增强网络稳定性、提升液相线温度；Fe₂O₃则显著降低熔融温度。该比值综合两者对软化温度的对抗效应。",
+      "notation": "Fe₂O₃ / TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TiO2",
+          "SiO2"
+        ]
+      },
+      "description": "钛酸根相对硅酸根的比例，衡量耐火酸性相的构网程度。TiO₂/SiO₂增大通常意味着更强的网络稳定性，软化温度偏高。",
+      "notation": "TiO₂ / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "SiO2"
+        ]
+      },
+      "description": "硫酸根相对硅酸根的比例。SO₃可与Na₂O/K₂O形成低熔点硫酸盐，相对SiO₂的富集度越高，灰分更易低温软化。",
+      "notation": "SO₃ / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "Al2O3"
+        ]
+      },
+      "description": "锰氧化物相对铝氧化物的比值。MnO属于过渡金属氧化物，具一定助熔作用；相对Al₂O₃的提升往往促进熔融、降低软化温度。",
+      "notation": "MnO / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Na2O",
+          "MgO"
+        ]
+      },
+      "description": "碱金属氧化物与镁氧化物的总量近似表示总体基本度提升水平。该和项增大通常对应灰渣黏度下降与软化温度降低。",
+      "notation": "Na₂O + MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "K2O",
+          "Fe2O3"
+        ]
+      },
+      "description": "钾氧化物与铁氧化物的总量，表征两类强助熔组分的协同富集。值越大，灰分更易形成低温液相，软化温度趋于降低。",
+      "notation": "K₂O + Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Al2O3",
+          "TiO2"
+        ]
+      },
+      "description": "铝、钛两类耐火酸性氧化物总量，反映灰分网络形成与结构稳定性。该和项增大一般提升软化温度。",
+      "notation": "Al₂O₃ + TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "SiO2"
+        ]
+      },
+      "description": "对SiO₂进行平方根变换以刻画其对软化温度的非线性影响，捕捉高含量区的边际效应递减。",
+      "notation": "√SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Standard_Ash",
+          "GSAsh_Dry"
+        ]
+      },
+      "description": "两种灰分测定指标的平均值，用于降低测量体系差异带来的噪声，提供更稳健的整体灰分水平表征。",
+      "notation": "(Standard_Ash + GSAsh_Dry) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "Fe2O3"
+        ]
+      },
+      "description": "酸性网络形成物减去强助熔物的差值，衡量灰分整体“耐火性-助熔性”的净效应。差值越大通常软化温度越高。",
+      "notation": "SiO₂ − Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Al2O3",
+          "K2O"
+        ]
+      },
+      "description": "铝氧化物与钾氧化物的差值，反映耐火相对碱金属助熔的主导程度。差值增大通常对应软化温度升高。",
+      "notation": "Al₂O₃ − K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "CaO",
+          "Na2O"
+        ]
+      },
+      "description": "石灰与钠氧化物的差值，区分弱至中等助熔的碱土氧化物与强助熔的碱金属氧化物的相对影响。Na₂O占优时软化温度显著降低。",
+      "notation": "CaO − Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "MgO",
+          "Fe2O3"
+        ]
+      },
+      "description": "镁氧化物与铁氧化物的乘积，刻画两类助熔组分的协同效应。二者同时偏高时更易形成低黏度液相，软化温度降低更显著。",
+      "notation": "MgO × Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "SiO2",
+          "Al2O3"
+        ]
+      },
+      "description": "主要酸性网络形成物的最大值，反映灰分中最占优势的耐火氧化物对软化温度的上限控制作用。",
+      "notation": "max(SiO₂, Al₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "K2O",
+          "Fe2O3"
+        ]
+      },
+      "description": "钾氧化物与铁氧化物的乘积，衡量碱金属与过渡金属助熔的协同活性。该协同项增大常与软化温度显著下降相关。",
+      "notation": "K₂O × Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "Fe2O3"
+        ]
+      },
+      "description": "对Fe₂O₃进行自然对数变换，捕捉其对软化温度的尺度效应和非线性关系，有助于稳定回归模型。",
+      "notation": "ln(Fe₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "Al2O3"
+        ]
+      },
+      "description": "对Al₂O₃进行常用对数变换（log₁₀），用于压缩量纲并刻画高含量区的逐渐减弱影响，增强与软化温度的线性可拟合性。",
+      "notation": "log₁₀(Al₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "CaO",
+          "TiO2"
+        ]
+      },
+      "description": "钙钛比，衡量碱性氧化物CaO相对耐火性氧化物TiO₂的优势。较高的CaO/TiO₂通常增强碱性助熔效应，可能降低灰分软化温度。",
+      "notation": "CaO / TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MgO",
+          "TiO2"
+        ]
+      },
+      "description": "镁钛比，反映MgO（弱碱性、耐火）与TiO₂（强耐火）的相对关系。该比值可指示镁系固溶体与钛酸盐对熔融温度的拮抗影响。",
+      "notation": "MgO / TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "K2O"
+        ]
+      },
+      "description": "钠钾碱比，表征两种强助熔碱金属氧化物的相对富集。Na₂O相较K₂O通常更易形成低熔共晶，该比值对软化温度敏感。",
+      "notation": "Na₂O / K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "Al2O3"
+        ]
+      },
+      "description": "硫酸根与铝酸盐能力的对比。SO₃升高易生成低熔点硫酸盐，Al₂O₃提升耐火性；SO₃/Al₂O₃越高，软化温度一般越低。",
+      "notation": "SO₃ / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "Fe2O3"
+        ]
+      },
+      "description": "锰铁氧化物比，体现过渡金属氧化物的相对通量效应。MnO可与Fe-硅酸盐形成低熔复合物，该比值有助刻画流动性变化。",
+      "notation": "MnO / Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TS",
+          "Fe"
+        ]
+      },
+      "description": "含硫水平相对金属铁的比例。较高TS/Fe提升形成硫化物或硫酸盐的可能性，常对应更低的软化温度。",
+      "notation": "TS / Fe",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "GSAsh",
+          "GSAsh_Dry"
+        ]
+      },
+      "description": "国标灰分湿基与干基的比值，反映水分/干燥校正差异。比值偏离1说明基准差异明显，可能影响灰熔特性评估。",
+      "notation": "GSAsh / GSAsh_Dry",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "GSAsh",
+          "Standard_Ash"
+        ]
+      },
+      "description": "两种灰分测定体系的平均指标，作为总体无机负荷的稳健代表，有助于综合估计熔融温度趋势。",
+      "notation": "(GSAsh + Standard_Ash) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "SiO2",
+          "Fe2O3"
+        ]
+      },
+      "description": "酸性SiO₂与两性Fe₂O₃中占主导的那一项。主导成分的上升通常对软化温度影响更显著（SiO₂升高耐火，Fe₂O₃升高多为助熔）。",
+      "notation": "max(SiO₂, Fe₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "CaO",
+          "Na2O"
+        ]
+      },
+      "description": "两种关键碱性助熔氧化物中的限制性含量。较低的限值往往决定能否形成足量低熔共晶，从而影响软化温度起点。",
+      "notation": "min(CaO, Na₂O)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "TiO2"
+        ]
+      },
+      "description": "TiO₂的平方，强调高含量TiO₂对耐火性的非线性增强作用，突出富Ti样本对软化温度的抬升效应。",
+      "notation": "TiO₂²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "MnO"
+        ]
+      },
+      "description": "对MnO进行平方根变换，削弱极端高含量的影响，捕捉锰系助熔效应的边际递减关系。",
+      "notation": "√MnO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "Na2O"
+        ]
+      },
+      "description": "Na₂O的对数变换，强化低含量区间的敏感性。少量Na₂O即可显著降低熔融温度，ln变换有助于线性建模该效应。",
+      "notation": "ln(Na₂O)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "K2O"
+        ]
+      },
+      "description": "K₂O的常用对数变换，适配长尾分布并凸显低至中等含量的通量作用。",
+      "notation": "log₁₀(K₂O)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "TS"
+        ]
+      },
+      "description": "总硫含量的对数变换，体现硫相关低熔盐生成的阈值/非线性效应。",
+      "notation": "ln(TS)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Standard_Ash",
+          "GSAsh"
+        ]
+      },
+      "description": "不同灰分测定体系之间的差值，指示测量基准或样品水分/矿物分配差异对熔融温度评估的偏移。",
+      "notation": "Standard_Ash − GSAsh",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Fe2O3",
+          "TiO2"
+        ]
+      },
+      "description": "铁钛氧化物差值。Fe₂O₃偏高通常增强助熔性，TiO₂偏高增强耐火性，该差值衡量两者竞争关系。",
+      "notation": "Fe₂O₃ − TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Fe2O3",
+          "TiO2"
+        ]
+      },
+      "description": "铁钛氧化物总量，表征过渡金属氧化物总体对熔融行为的影响（既可能形成低熔复合物，也可提升耐火度）。",
+      "notation": "Fe₂O₃ + TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "K2O",
+          "Na2O"
+        ]
+      },
+      "description": "钾相对钠的优势度。K₂O常与铝硅酸盐形成低熔相，该差值可指示K主导的助熔趋势。",
+      "notation": "K₂O − Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Na",
+          "K"
+        ]
+      },
+      "description": "元素态总碱（Na+K），捕捉挥发-富集与矿物结合态差异对低熔共晶形成的总体驱动。",
+      "notation": "Na + K",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "CaO",
+          "MgO"
+        ]
+      },
+      "description": "Ca/Mg 基础度比。CaO更易与SiO₂形成低熔点硅酸盐，而MgO更耐火；较高的CaO/MgO通常指示更强的熔剂效应、较低的软化温度。",
+      "notation": "CaO / MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "CaO"
+        ]
+      },
+      "description": "铁钙比。Fe₂O₃为强熔剂、易与硅酸盐形成低熔物，相对CaO含量越高，往往软化温度越低。",
+      "notation": "Fe₂O₃ / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K2O",
+          "CaO"
+        ]
+      },
+      "description": "钾/钙比。碱金属氧化物（K₂O）相较碱土（CaO）更强的熔剂作用，较高比值通常提示低温共熔倾向增强。",
+      "notation": "K₂O / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TiO2",
+          "Fe2O3"
+        ]
+      },
+      "description": "钛铁比。TiO₂具耐火特性、Fe₂O₃具熔剂特性，较高TiO₂/Fe₂O₃意味着体系更偏耐火、软化温度可能更高。",
+      "notation": "TiO₂ / Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "CaO"
+        ]
+      },
+      "description": "锰钙比。MnO为基础氧化物并具一定熔剂性，与CaO共同影响低熔点锰钙硅酸盐的生成；该比值可指示潜在软化温度变化方向。",
+      "notation": "MnO / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "Na2O"
+        ]
+      },
+      "description": "硫酸根/钠碱比。SO₃与Na₂O可形成低熔点的硫酸盐（如Na₂SO₄），较高比值提示硫酸盐主导、软化温度降低的风险。",
+      "notation": "SO₃ / Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TS",
+          "Na"
+        ]
+      },
+      "description": "总硫/钠（元素态）比。刻画燃料中硫对钠的“硫酸盐化”潜力，较高值往往伴随更多低熔点钠盐生成、降低软化温度。",
+      "notation": "TS / Na",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Al2O3",
+          "TiO2"
+        ]
+      },
+      "description": "铝钛比。Al₂O₃与TiO₂均提升耐火度，但其晶相与反应性不同；较高Al₂O₃/TiO₂反映富铝黏土质灰分特征，通常推高软化温度。",
+      "notation": "Al₂O₃ / TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "SiO2",
+          "TiO2"
+        ]
+      },
+      "description": "酸性耐火氧化物总量。SiO₂与TiO₂共同强化骨架相与耐火度，和越大通常对应更高的软化温度。",
+      "notation": "SiO₂ + TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Na2O",
+          "Fe2O3"
+        ]
+      },
+      "description": "强熔剂总量。Na₂O与Fe₂O₃均显著降低灰熔点，其总量可指示形成低熔点共熔物（如铁硅酸盐、碱金属硅酸盐）的潜势。",
+      "notation": "Na₂O + Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Na2O",
+          "K2O"
+        ]
+      },
+      "description": "平均碱金属含量。反映Na₂O与K₂O的综合水平，用于衡量碱金属驱动的低熔点硅酸盐/硫酸盐生成潜力。",
+      "notation": "(Na₂O + K₂O) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "Na2O",
+          "K2O"
+        ]
+      },
+      "description": "碱金属中的“短板”含量。两者形成共熔需要相互作用，较小者可能主导反应受限程度，从而影响软化行为。",
+      "notation": "min(Na₂O, K₂O)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Al2O3",
+          "Fe2O3"
+        ]
+      },
+      "description": "铝铁差。正值表示酸性耐火相（Al₂O₃）相对熔剂相（Fe₂O₃）占优，通常与较高软化温度相关。",
+      "notation": "Al₂O₃ − Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "TiO2"
+        ]
+      },
+      "description": "硅钛差。用于区分以SiO₂为主的酸性骨架与TiO₂耐火增强的相对贡献，对黏土质-钛质灰分的软化差异有指示意义。",
+      "notation": "SiO₂ − TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "CaO",
+          "Fe2O3"
+        ]
+      },
+      "description": "钙铁差。两者均为基础性氧化物但熔剂强度不同，差值可刻画钙主导（可能更耐火）与铁主导（更易低熔）之间的平衡。",
+      "notation": "CaO − Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "SiO2",
+          "Fe2O3"
+        ]
+      },
+      "description": "铁硅相互作用项。表征形成低熔点铁硅酸盐（如fayalite等）的耦合强度，常与软化温度下降相关。",
+      "notation": "SiO₂ × Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "Al2O3",
+          "CaO"
+        ]
+      },
+      "description": "铝钙相互作用项。刻画可能生成钙铝酸盐相的潜势，该类相对灰熔行为影响显著（可形成多种熔点不同的矿物）。",
+      "notation": "Al₂O₃ × CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "TiO2",
+          "Fe2O3"
+        ]
+      },
+      "description": "钛铁相互作用项。反映可能生成铁钛氧化物（或与硅酸盐共熔相）对软化温度的影响。",
+      "notation": "TiO₂ × Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "SiO2"
+        ]
+      },
+      "description": "对数变换的SiO₂。用于缓解SiO₂分布偏度并引入非线性，有助于更稳健地刻画SiO₂对软化温度的影响。",
+      "notation": "ln(SiO₂)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "GSAsh"
+        ]
+      },
+      "description": "灰分含量（GSAsh）的常用对数。尺度压缩有助于线性模型学习灰分总量对软化温度的非线性影响。",
+      "notation": "log₁₀(GSAsh)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "MgO"
+        ]
+      },
+      "description": "铁氧化物与镁氧化物的比值。Fe2O3是强助熔氧化物，MgO在一定条件下更偏耐火；该比值越大，灰分的液相形成更容易，软化温度可能降低。",
+      "notation": "Fe₂O₃ / MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SiO2",
+          "MgO"
+        ]
+      },
+      "description": "硅酸（网络形成者）与镁氧化物（网络破坏者/耐火碱性）的比值，反映酸性骨架与碱性调节物之间的平衡。较高的SiO2/MgO通常提示更高的黏度与更高的软化温度。",
+      "notation": "SiO₂ / MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TiO2",
+          "CaO"
+        ]
+      },
+      "description": "TiO2为耐火组分，CaO为强基性/助熔组分；该比值衡量耐火性相对助熔性的优势，比例越大，灰分软化温度倾向升高。",
+      "notation": "TiO₂ / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "Na2O"
+        ]
+      },
+      "description": "铁氧化物与钠氧化物的比值。Na2O与SiO2可形成低熔点共熔体，Fe2O3也有助熔作用；该比值反映两类助熔路径的相对主导性。",
+      "notation": "Fe₂O₃ / Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "MgO"
+        ]
+      },
+      "description": "硫酸根氧化物与镁氧化物的比值。SO3与碱金属可生成低熔点硫酸盐，MgO相对耐火；较高比值意味着硫酸盐相对耐火碱性被削弱，软化温度可能降低。",
+      "notation": "SO₃ / MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "K2O"
+        ]
+      },
+      "description": "SO3与K2O的比值，用于表征形成K2SO4等低熔点盐的潜力。该比值越高，灰分更易出现低温软化的风险。",
+      "notation": "SO₃ / K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "TiO2"
+        ]
+      },
+      "description": "钠氧化物与钛氧化物的比值。Na2O为强助熔，TiO2为耐火相；比值越大通常意味着更强的熔融倾向与较低的软化温度。",
+      "notation": "Na₂O / TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K2O",
+          "TiO2"
+        ]
+      },
+      "description": "钾氧化物与钛氧化物的比值，衡量碱金属助熔效应与耐火相对抗的强弱。比值升高往往对应灰分低温软化的可能性增大。",
+      "notation": "K₂O / TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Al2O3",
+          "Fe2O3"
+        ]
+      },
+      "description": "铝氧化物与铁氧化物的比值。Al2O3为耐火酸性氧化物，Fe2O3为助熔氧化物；比值越高一般意味着熔体聚合程度更高、软化温度上升。",
+      "notation": "Al₂O₃ / Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Fe2O3",
+          "MgO"
+        ]
+      },
+      "description": "铁氧化物与镁氧化物含量的总量指标。综合衡量过渡金属助熔（Fe2O3）与碱性耐火（MgO）的共同影响，用于捕捉复合效应。",
+      "notation": "Fe₂O₃ + MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Na2O",
+          "SO3"
+        ]
+      },
+      "description": "钠氧化物与SO3的总量，表征生成Na2SO4等低熔点盐的原料富集程度。该和值增大通常意味着软化温度降低的风险上升。",
+      "notation": "Na₂O + SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "K2O",
+          "SO3"
+        ]
+      },
+      "description": "钾氧化物与SO3的总量，表征形成K2SO4类盐的潜力。该和值有助于识别碱金属-硫的协同助熔作用。",
+      "notation": "K₂O + SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Al",
+          "Si"
+        ]
+      },
+      "description": "元素态Al与Si的总量，代表酸性骨架元素的富集程度。网络形成者越丰富，熔体黏度越高，软化温度通常提高。",
+      "notation": "Al + Si",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Ca",
+          "Mg"
+        ]
+      },
+      "description": "元素态Ca与Mg的总量，代表碱性/网络破坏元素的丰度。该和值增大通常提升助熔/去聚合作用，可能降低软化温度。",
+      "notation": "Ca + Mg",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Ca",
+          "Si"
+        ]
+      },
+      "description": "元素态Ca/Si比值，反映基本性相对酸性骨架的强弱。比值越高，硅酸盐网络被破坏的程度越大，软化温度倾向下降。",
+      "notation": "Ca / Si",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Al",
+          "Si"
+        ]
+      },
+      "description": "元素态Al/Si比值，表征铝硅酸盐网络的聚合程度。较高的Al/Si通常对应更耐火的相，软化温度升高。",
+      "notation": "Al / Si",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na",
+          "K"
+        ]
+      },
+      "description": "元素态Na/K比值，反映碱金属组成的偏向。Na相对更易形成低熔点盐，相对偏高的Na/K可能增强低温熔融倾向。",
+      "notation": "Na / K",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "CaO",
+          "Fe2O3"
+        ]
+      },
+      "description": "CaO与Fe2O3的平均值，作为主要基性助熔氧化物的综合强度指标。该均值可线性近似其共同影响，用于稳定建模。",
+      "notation": "mean(CaO, Fe₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "Na2O",
+          "SO3"
+        ]
+      },
+      "description": "在Na2O与SO3中取较大值，用作硫酸盐生成潜力的上限指标。当任一组分偏高时，低熔点盐的形成更易发生，软化温度可能受其主导。",
+      "notation": "max(Na₂O, SO₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "TiO2"
+        ]
+      },
+      "description": "TiO2的自然对数变换，用于压缩偏态分布并线性化其对软化温度的影响。TiO2作为耐火相，其对软化温度的提升在高含量区间可能呈对数关系。",
+      "notation": "ln(TiO₂)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "TiO2"
+        ]
+      },
+      "description": "硫酸盐与钛的比值。SO3代表硫酸盐形成潜力，易生成低熔点的硫酸盐，TiO2为高熔点的耐火成分。较高的比值指示硫酸盐主导，可能降低灰分软化温度。",
+      "notation": "SO₃ / TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "SO3",
+          "Al2O3"
+        ]
+      },
+      "description": "硫酸盐与铝酸盐的综合酸性负荷。Al2O3通常提升熔融温度，而SO3促进低熔点盐的形成，该特征衡量两者共同作用对软化温度的影响。",
+      "notation": "SO₃ + Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "MnO",
+          "Fe2O3"
+        ]
+      },
+      "description": "过渡金属氧化物总量。MnO与Fe2O3常作为助熔剂进入硅酸盐网络，增加液相比例，通常降低软化温度。",
+      "notation": "MnO + Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "CaO",
+          "SiO2"
+        ]
+      },
+      "description": "酸碱主组分的平均水平。CaO为碱性助熔氧化物，SiO2为酸性骨架氧化物，平均值反映体系整体酸碱平衡对熔融行为的影响。",
+      "notation": "(CaO + SiO₂) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "TS",
+          "SO3"
+        ]
+      },
+      "description": "硫总量与硫酸盐的合计。TS表征燃料硫源，SO3表征硫酸盐现存量，两者合计代表硫酸盐生成潜力与现状，影响低熔点盐相及软化温度。",
+      "notation": "TS + SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "CaO",
+          "SiO2"
+        ]
+      },
+      "description": "酸碱主组分的主导程度。较大的值代表体系中酸性或碱性一方明显占优，对应不同的共熔点与液相线位置，影响软化温度。",
+      "notation": "max(CaO, SiO₂)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "SiO2",
+          "MgO"
+        ]
+      },
+      "description": "硅和镁的合计。MgO与SiO2形成高熔点镁硅酸盐（如辉石类），该总量反映潜在高熔点相的生成能力，通常提升软化温度。",
+      "notation": "SiO₂ + MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "CaO",
+          "TiO2"
+        ]
+      },
+      "description": "钙与钛的合计。CaO与TiO2可形成钙钛矿类或钛酸盐相，提高黏度与熔点，该特征刻画这些耐火相的形成潜力。",
+      "notation": "CaO + TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "MgO"
+        ]
+      },
+      "description": "净硅酸性（扣除镁）。较大的差值意味着酸性骨架相对富集、镁助熔作用较弱，通常与更高的软化温度相关。",
+      "notation": "SiO₂ − MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Al2O3",
+          "CaO"
+        ]
+      },
+      "description": "净铝酸性（扣除钙）。Al2O3的耐火性与CaO的助熔性相互制衡，差值表示耐火相对优势，通常提高软化温度。",
+      "notation": "Al₂O₃ − CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Fe2O3",
+          "CaO"
+        ]
+      },
+      "description": "铁的助熔量相对钙的净值。Fe2O3与CaO均可降低熔点，但机制不同（铁进入网络、钙改性网络），差值可刻画铁主导的助熔强度。",
+      "notation": "Fe₂O₃ − CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "Fe2O3",
+          "CaO"
+        ]
+      },
+      "description": "主要助熔组分中的限制因子。较小者代表体系早期软化阶段的瓶颈成分，其含量常决定起始液相的形成与软化温度的阈值。",
+      "notation": "min(Fe₂O₃, CaO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "Al2O3"
+        ]
+      },
+      "description": "铝酸盐的平方根变换。用于捕捉Al2O3对熔融温度提升的边际递减效应，缓解线性模型中的非线性影响。",
+      "notation": "√Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "TiO2"
+        ]
+      },
+      "description": "钛的平方根变换。TiO2的耐火作用通常在高含量时边际递减，平方根变换有助于更好拟合其对软化温度的非线性贡献。",
+      "notation": "√TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "MnO"
+        ]
+      },
+      "description": "锰的自然对数变换。MnO作为助熔剂在低含量时影响显著，log变换可稳定其对软化温度的影响并降低偏态。",
+      "notation": "ln(MnO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "SO3"
+        ]
+      },
+      "description": "硫酸盐的常用对数变换。SO3与低熔点盐形成高度相关，log10变换有助于刻画其在不同数量级上的影响。",
+      "notation": "log₁₀(SO₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "GSAsh_Dry"
+        ]
+      },
+      "description": "干基灰分的自然对数。用于刻画灰分含量对软化温度的乘性影响并减弱高值的杠杆效应。",
+      "notation": "ln(GSAsh_Dry)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "Standard_Ash"
+        ]
+      },
+      "description": "标准灰分的常用对数。对总体灰分水平进行尺度压缩，帮助模型更稳定地学习灰分含量与熔融行为的关系。",
+      "notation": "log₁₀(Standard_Ash)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "GSAsh"
+        ]
+      },
+      "description": "灰分含量的平方根变换。用于捕捉灰分含量增加时对软化温度影响的非线性与边际效应变化。",
+      "notation": "√GSAsh",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "MnO"
+        ]
+      },
+      "description": "锰的平方项。用于刻画MnO对熔融温度的二次非线性效应，反映在较高含量下可能出现的助熔效应增强。",
+      "notation": "MnO²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SiO2",
+          "Si"
+        ]
+      },
+      "description": "硅氧化物与元素硅的比值，表征硅主要以矿物氧化物（石英/长石等）形态存在的程度；较高值通常意味着酸性骨架更强，软化温度上升。",
+      "notation": "SiO₂ / Si",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Al2O3",
+          "Al"
+        ]
+      },
+      "description": "铝氧化物与元素铝的比值，反映铝在灰中以氧化物/铝硅酸盐形态富集的程度；较高值代表耐火相增多，有利于提高灰熔温。",
+      "notation": "Al₂O₃ / Al",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "Fe"
+        ]
+      },
+      "description": "三氧化二铁与元素铁的比值，指示铁的氧化程度与矿物态分布；铁氧化物易与碱土/碱金属形成低熔物，比例异常升高可能降低软化温度。",
+      "notation": "Fe₂O₃ / Fe",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "CaO",
+          "Ca"
+        ]
+      },
+      "description": "氧化钙与元素钙的比值，衡量钙以氧化物/碳酸盐等无机相出现的份额；较高值往往增强基性助熔作用，可能降低灰软化温度。",
+      "notation": "CaO / Ca",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MgO",
+          "Mg"
+        ]
+      },
+      "description": "氧化镁与元素镁的比值，描述镁的矿物化程度；MgO常表现为耐火相，比例升高有助于提升灰熔温。",
+      "notation": "MgO / Mg",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "Na"
+        ]
+      },
+      "description": "氧化钠与元素钠的比值，反映钠以可挥发/可溶盐或硅铝酸盐形态的比例；Na₂O为强助熔组分，比例偏高常降低软化温度。",
+      "notation": "Na₂O / Na",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K2O",
+          "K"
+        ]
+      },
+      "description": "氧化钾与元素钾的比值，衡量钾的矿物态富集；K₂O易形成低熔共熔相，比例升高通常降低灰熔温。",
+      "notation": "K₂O / K",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TiO2",
+          "Ti"
+        ]
+      },
+      "description": "二氧化钛与元素钛的比值，表征钛的氧化与矿物结合程度；TiO₂多为耐火相，比例提高常与更高软化温度相关。",
+      "notation": "TiO₂ / Ti",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "TS"
+        ]
+      },
+      "description": "硫酸根氧化物占总硫的份额，反映硫以硫酸盐形态固结的程度；更高比值意味着硫酸盐低熔相潜势更大，可能降低软化温度。",
+      "notation": "SO₃ / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "GSAsh",
+          "Standard_Ash"
+        ]
+      },
+      "description": "两种灰分测定方法结果的比值，表征方法差异对无机物保留与挥发的影响；偏离1的程度可指示矿物相分布差异对熔融性的影响。",
+      "notation": "GSAsh / Standard_Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "GSAsh_Dry",
+          "GSAsh"
+        ]
+      },
+      "description": "干基灰分与原始灰分的比值，衡量水分/挥发性影响；该比值可反映可变相（如硫酸盐、碱金属盐）富集对软化温度的影响。",
+      "notation": "GSAsh_Dry / GSAsh",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "Al2O3",
+          "Fe2O3"
+        ]
+      },
+      "description": "铝氧化物与铁氧化物中的较大者，指示耐火（Al₂O₃）与潜在助熔（Fe₂O₃）之间的主导含量，对软化温度的上/下拉具有指示性。",
+      "notation": "max(Al₂O₃, Fe₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "MgO",
+          "K2O"
+        ]
+      },
+      "description": "镁氧化物与钾氧化物中的较小者，代表在耐火相（MgO）与强助熔相（K₂O）之间的限制性含量，对早期低熔相形成具有敏感性。",
+      "notation": "min(MgO, K₂O)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "GSAsh_Dry"
+        ]
+      },
+      "description": "干基灰分的平方根变换，缓解偏态和尺度效应，便于线性模型更好刻画灰分对软化温度的非线性影响。",
+      "notation": "√GSAsh_Dry",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "SO3"
+        ]
+      },
+      "description": "SO₃的平方以放大高含量硫酸盐的影响，高SO₃易与碱金属/碱土形成低熔盐类，显著降低软化温度。",
+      "notation": "(SO₃)²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "MgO"
+        ]
+      },
+      "description": "MgO的常用对数变换，刻画MgO在低含量区的相对变化；MgO作为耐火相，增加常抬升软化温度。",
+      "notation": "log₁₀(MgO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "K2O"
+        ]
+      },
+      "description": "K₂O的自然对数变换，减少极端值影响；K₂O是强助熔氧化物，其提升通常对应软化温度下降。",
+      "notation": "ln(K₂O)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "Na2O"
+        ]
+      },
+      "description": "Na₂O的平方根变换，平滑其对软化温度的非线性助熔效应，利于模型稳定学习。",
+      "notation": "√Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "Fe2O3"
+        ]
+      },
+      "description": "Fe₂O₃的平方以强调高铁氧化物条件下的显著熔点降低趋势（与碱土/碱金属形成低熔共熔物）。",
+      "notation": "(Fe₂O₃)²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "TiO2",
+          "SiO2"
+        ]
+      },
+      "description": "TiO₂与SiO₂中的较小者，表征酸性耐火骨架中相对的短板含量，对早期软化起点具有敏感性。",
+      "notation": "min(TiO₂, SiO₂)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "CaO",
+          "SO3"
+        ]
+      },
+      "description": "CaO与SO₃的比值，反映碱性氧化物对硫酸根形成的抵消作用。较高的CaO/SO₃意味着硫酸盐生成受抑制，灰渣低熔物相减少，通常对应更高的软化温度。",
+      "notation": "CaO / SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MgO",
+          "Fe2O3"
+        ]
+      },
+      "description": "MgO与Fe₂O₃的比值，衡量耐火氧化物（MgO）与助熔氧化物（Fe₂O₃）的相对强度。比值越大，体系更耐火，灰分软化温度通常升高。",
+      "notation": "MgO / Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "MgO",
+          "K2O"
+        ]
+      },
+      "description": "MgO与K₂O的总量，综合反映耐火（MgO）与碱金属（K₂O）两类组分的同时影响。其总量变化有助于刻画灰渣中相的竞争形成对熔融行为的影响。",
+      "notation": "MgO + K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "Na2O"
+        ]
+      },
+      "description": "SiO₂相对于Na₂O的富余量，体现硅酸网架与碱金属助熔效应的差值。富余的SiO₂常增强结构聚合度，提高软化温度。",
+      "notation": "SiO₂ − Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Al2O3",
+          "MgO"
+        ]
+      },
+      "description": "Al₂O₃相对于MgO的富余量，刻画铝酸盐骨架与镁的配位竞争。铝的富余通常增强黏度与耐火性，对软化温度有提升作用。",
+      "notation": "Al₂O₃ − MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "CaO",
+          "Na2O"
+        ]
+      },
+      "description": "CaO与Na₂O的乘积，表征碱性氧化物与碱金属的协同助熔潜力。二者共同升高时更易形成低熔复合物，相对降低软化温度。",
+      "notation": "CaO × Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "SiO2",
+          "Al2O3"
+        ]
+      },
+      "description": "SiO₂与Al₂O₃的乘积，反映酸性骨架氧化物的联合含量。该组合通常对应更强的网络结构与黏度，提高灰分的软化温度。",
+      "notation": "SiO₂ × Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "Al2O3"
+        ]
+      },
+      "description": "Al₂O₃的自然对数变换，用于刻画铝酸盐含量对熔融温度的对数型影响并减少偏态。Al₂O₃常提升灰渣耐火性。",
+      "notation": "ln(Al₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "CaO"
+        ]
+      },
+      "description": "CaO的常用对数变换，缓解浓度跨度对模型的影响。CaO增加一般提升基本度，但与其他组分协同决定软化温度。",
+      "notation": "log₁₀(CaO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "SO3"
+        ]
+      },
+      "description": "SO₃的平方根变换，降低高含量硫酸盐对模型的极端影响。SO₃与碱金属反应生成低熔硫酸盐，影响软化温度。",
+      "notation": "√SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "MgO"
+        ]
+      },
+      "description": "MgO的平方项，强调高镁含量对耐火性的非线性增强效应。更高的MgO²通常指示更高的软化温度。",
+      "notation": "MgO²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Na2O",
+          "CaO"
+        ]
+      },
+      "description": "Na₂O与CaO的平均值，表示碱金属与碱性氧化物的综合水平。该平均可代表总体助熔潜力对软化温度的影响强度。",
+      "notation": "(Na₂O + CaO) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "Fe2O3",
+          "TiO2"
+        ]
+      },
+      "description": "Fe₂O₃与TiO₂的最大值，捕捉在重金属氧化物中占主导的那一组分。Fe₂O₃偏助熔、TiO₂偏耐火，主导者常决定熔融趋势。",
+      "notation": "max(Fe₂O₃, TiO₂)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "SiO2",
+          "CaO"
+        ]
+      },
+      "description": "SiO₂与CaO的最小值，体现酸性与碱性组分中的限制性因子。限制性组分在形成共晶相时可能决定软化起始温度。",
+      "notation": "min(SiO₂, CaO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TS",
+          "K"
+        ]
+      },
+      "description": "全硫（TS）与元素钾（K）的比值，刻画硫酸钾生成的潜在比例关系。较高TS/K可能促进K₂SO₄等低熔相的形成，降低软化温度。",
+      "notation": "TS / K",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na",
+          "Si"
+        ]
+      },
+      "description": "元素钠与元素硅的比值，体现Na对硅酸盐网络的破坏程度。较高Na/Si倾向形成低熔钠-硅酸盐，相对降低软化温度。",
+      "notation": "Na / Si",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "TiO2",
+          "SO3"
+        ]
+      },
+      "description": "TiO₂与SO₃的总量，综合反映耐火的钛组分与硫酸盐相对低熔效应的叠加，对熔融行为的双重影响具有指示性。",
+      "notation": "TiO₂ + SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Fe2O3",
+          "MgO"
+        ]
+      },
+      "description": "Fe₂O₃相对于MgO的净助熔量。该差值越大，助熔效应相对更强，灰分软化温度可能降低。",
+      "notation": "Fe₂O₃ − MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "GSAsh_Dry",
+          "Standard_Ash"
+        ]
+      },
+      "description": "干基灰（GSAsh_Dry）与标准灰（Standard_Ash）的差值，反映测定与基准差异导致的灰分成分与结构差对软化温度的影响。",
+      "notation": "GSAsh_Dry − Standard_Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Na2O",
+          "SO3"
+        ]
+      },
+      "description": "碱硫平均指数，表示灰分中钠氧化物与硫酸根含量的综合水平。Na2O与SO3在燃烧过程中易形成低熔点的钠硫酸盐（Na2SO4）及其与SiO2/Al2O3的共熔物，显著降低灰分的软化温度。用平均值可稳定尺度、降低极端值影响，作为评估铵盐/硫酸盐富集程度的简化指标，对预测Ash_Softening具有直接的物理意义。",
+      "notation": "(Na₂O + SO₃) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Standard_Ash",
+          "SiO2"
+        ]
+      },
+      "description": "标准灰分与SiO₂的比值，衡量整体灰分对硅酸骨架的稀释程度。SiO₂提升熔温，而较高的总体灰分会引入更多助熔组分，该比值有助于评估软化温度下降的风险。",
+      "notation": "Standard_Ash / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Standard_Ash",
+          "Al2O3"
+        ]
+      },
+      "description": "标准灰分与Al₂O₃的比值，反映灰分规模相对于耐火铝酸盐的支撑能力。较高值可能意味着铝酸盐不足以抵消灰分中的助熔效应，软化温度偏低。",
+      "notation": "Standard_Ash / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "TS"
+        ]
+      },
+      "description": "Na₂O与全硫的比值，表征碱金属与硫的配比。硫化或硫酸盐生成依赖碱金属供给，该比值可指示形成低熔点硫酸盐的潜力从而降低软化温度。",
+      "notation": "Na₂O / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K2O",
+          "TS"
+        ]
+      },
+      "description": "K₂O与全硫的比值，衡量钾对硫酸盐形成的贡献。更高的比值通常意味着更多低熔点钾盐生成，易使灰分提前软化。",
+      "notation": "K₂O / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Ca",
+          "TS"
+        ]
+      },
+      "description": "元素Ca与全硫的比值，反映钙对硫捕集（如CaSO₄）的潜力。较高Ca/TS意味着更多硫被稳定化，改变相图并影响软化温度。",
+      "notation": "Ca / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe",
+          "Fe2O3"
+        ]
+      },
+      "description": "元素Fe与Fe₂O₃的比值，指示铁的还原程度与氧化铁的比例。铁价态和含量影响低熔点铁酸盐的形成，对灰软化温度敏感。",
+      "notation": "Fe / Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Si",
+          "Al2O3"
+        ]
+      },
+      "description": "元素Si与Al₂O₃的比值，表征硅对铝酸盐骨架的相对丰度。较高Si/Al₂O₃通常增强硅酸盐网络，提升软化温度。",
+      "notation": "Si / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "TS",
+          "CaO"
+        ]
+      },
+      "description": "全硫与CaO之和，捕捉硫与钙相互作用的总量指示。CaO参与硫酸盐生成与熔融相调控，该合量与软化温度变化相关。",
+      "notation": "TS + CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Fe",
+          "TiO2"
+        ]
+      },
+      "description": "元素Fe与TiO₂之和，反映铁与钛共存的潜在钛酸盐/铁酸盐相形成倾向，这些相常改变熔点并影响软化行为。",
+      "notation": "Fe + TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "Na",
+          "Na2O"
+        ]
+      },
+      "description": "元素Na与Na₂O的乘积，刻画钠的总可用性（元素态与氧化态）的协同效应。更高值意味着更强的助熔作用，往往降低软化温度。",
+      "notation": "Na × Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "K",
+          "K2O"
+        ]
+      },
+      "description": "元素K与K₂O的乘积，表征钾的整体通量效应。钾在灰分中形成低熔点相的能力较强，乘积可增强对软化温度的预测。",
+      "notation": "K × K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "GSAsh_Dry",
+          "Standard_Ash"
+        ]
+      },
+      "description": "干基灰分与标准灰分的比值，衡量水分与测定基准差异对灰分的影响。比值偏高意味着真实灰分负荷更大，可能降低软化温度。",
+      "notation": "GSAsh_Dry / Standard_Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "Na",
+          "K"
+        ]
+      },
+      "description": "元素Na与K的最大值，刻画主导碱金属的上限水平。主导碱金属含量越高，形成低熔点相的可能性越大。",
+      "notation": "max(Na, K)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "TS",
+          "SO3"
+        ]
+      },
+      "description": "TS与SO₃的最小值，提供硫源的稳健下限指示。硫以硫酸根存在会促进低熔点盐的形成，影响软化温度。",
+      "notation": "min(TS, SO₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Si",
+          "Al"
+        ]
+      },
+      "description": "元素Si与Al的平均值，作为酸性成分骨架的简化表征。更高平均值通常对应更强的耐火网络，软化温度上升。",
+      "notation": "(Si + Al) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "MgO"
+        ]
+      },
+      "description": "MgO的平方根变换，缓和高含量MgO的影响。镁作为中性/弱碱助熔组分，对软化温度非线性影响可通过此变换刻画。",
+      "notation": "√MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "CaO"
+        ]
+      },
+      "description": "CaO的自然对数，用于刻画钙的助熔效应的递减边际影响。CaO常与硫和硅酸盐形成多元相，ln变换更符合实际响应。",
+      "notation": "ln(CaO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "Fe2O3"
+        ]
+      },
+      "description": "Fe₂O₃的常用对数变换，压缩其动态范围以更好拟合铁的助熔与网络破坏效应对软化温度的非线性影响。",
+      "notation": "log10(Fe₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "Na2O"
+        ]
+      },
+      "description": "Na₂O的平方，强调高水平钠氧化物的强助熔作用。Na₂O升高会显著降低熔点，平方增强该影响在模型中的权重。",
+      "notation": "(Na₂O)²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "Standard_Ash"
+        ]
+      },
+      "description": "标准灰分的平方，体现灰分负荷对软化温度可能的非线性影响。大量灰分改变熔融相比例，平方有助于捕捉加速效应。",
+      "notation": "(Standard_Ash)²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Si",
+          "SiO2"
+        ]
+      },
+      "description": "元素硅与二氧化硅的比值，反映硅在元素态与氧化态间的相对占比；较低值通常对应更高的硅酸盐聚合度，往往提高灰的黏度与软化温度。",
+      "notation": "Si / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Al",
+          "Al2O3"
+        ]
+      },
+      "description": "元素铝与氧化铝的比值，表征铝的氧化程度与矿物赋存形态；氧化铝是高熔点酸性/两性氧化物，此比值有助于刻画耐火相对软化行为的影响。",
+      "notation": "Al / Al₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na",
+          "Na2O"
+        ]
+      },
+      "description": "元素钠与氧化钠的比值，表征钠在元素与氧化物之间的分配；钠为强助熔组分，较高的元素钠相对含量可能指示更易形成低熔盐类，降低软化温度。",
+      "notation": "Na / Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K",
+          "K2O"
+        ]
+      },
+      "description": "元素钾与氧化钾的比值，反映总钾在氧化物与其他形态间的分配；钾与钠共同主导低温共熔的形成，对灰软化温度敏感。",
+      "notation": "K / K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Ti",
+          "TiO2"
+        ]
+      },
+      "description": "元素钛与二氧化钛的比值，刻画钛的氧化程度；TiO₂为耐火相，较低比值常对应更稳定的高熔点矿物相，有助于提升软化温度。",
+      "notation": "Ti / TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "Ca"
+        ]
+      },
+      "description": "元素钙的自然对数变换，用于压缩偏态分布并捕捉钙在高含量区间对灰软化温度的非线性影响；钙与硅铝形成硅酸盐/铝酸盐相显著改变熔融行为。",
+      "notation": "ln(Ca)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TS",
+          "Si"
+        ]
+      },
+      "description": "全硫与元素硅之比，表征硫分相对于硅骨架的相对丰度；硫酸盐生成与硅酸盐网络的竞争影响熔融行为，较高比值通常促使低熔盐生成，降低软化温度。",
+      "notation": "TS / Si",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "GSAsh",
+          "SiO2"
+        ]
+      },
+      "description": "灰分（干态基准）对二氧化硅的归一化指标，反映整体灰负荷相对主要酸性组分的比例；有助于刻画高灰工况下硅酸盐网络的被稀释程度与软化响应。",
+      "notation": "GSAsh / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Fe2O3",
+          "SiO2"
+        ]
+      },
+      "description": "铁氧化物与二氧化硅总量，指示参与形成低温共熔（Fe-硅酸盐）与网络骨架（SiO₂）的综合影响，对软化温度的提升或降低具有双向作用。",
+      "notation": "Fe₂O₃ + SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "CaO",
+          "K2O"
+        ]
+      },
+      "description": "碱性氧化物与碱金属氧化物之和，代表总助熔能力的增强趋势；CaO与K₂O共同降低液相生成温度，通常压低软化温度。",
+      "notation": "CaO + K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "K2O"
+        ]
+      },
+      "description": "酸性骨架组分与强助熔碱金属氧化物的差值，衡量网络形成能力相对助熔效应的净平衡；差值越大，软化温度通常越高。",
+      "notation": "SiO₂ − K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Al2O3",
+          "TiO2"
+        ]
+      },
+      "description": "两种耐火性氧化物的差值，体现Al₂O₃相对TiO₂的优势；更高的Al₂O₃相对量通常提升液相黏度与软化温度。",
+      "notation": "Al₂O₃ − TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "CaO",
+          "SO3"
+        ]
+      },
+      "description": "可与硅铝反应的有效CaO在考虑硫酸盐化消耗后的近似净量；更高净CaO利于生成高温钙硅酸盐，相对提高软化温度。",
+      "notation": "CaO − SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "CaO",
+          "SiO2"
+        ]
+      },
+      "description": "CaO与SiO₂的相互作用强度近似项，反映钙硅酸盐生成潜力的非线性指示，对熔融起始与软化温度敏感。",
+      "notation": "CaO × SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "Al2O3",
+          "Fe2O3"
+        ]
+      },
+      "description": "Al₂O₃与Fe₂O₃的耦合项，指示尖晶石类（如FeAl₂O₄）形成倾向的非线性影响；该类高温相会改变液相比例与软化行为。",
+      "notation": "Al₂O₃ × Fe₂O₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "TS",
+          "SO3"
+        ]
+      },
+      "description": "硫的两种度量（总硫与硫酸盐硫）的上界指标，用于捕捉最不利助熔硫影响；更高值常与低熔盐相生成相关，降低软化温度。",
+      "notation": "max(TS, SO₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "Na",
+          "K"
+        ]
+      },
+      "description": "碱金属元素含量的下界，代表潜在易挥发、易生成低熔盐的限制性因子；下界提升亦可显著降低软化温度。",
+      "notation": "min(Na, K)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Fe2O3",
+          "Al2O3"
+        ]
+      },
+      "description": "两性/耐火氧化物平均水平，表征Fe₂O₃与Al₂O₃综合对熔融网络结构与黏度的影响基线。",
+      "notation": "(Fe₂O₃ + Al₂O₃) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "TS"
+        ]
+      },
+      "description": "全硫的平方根变换，减弱极端硫含量的影响以更好刻画其对软化温度的非线性助熔效应。",
+      "notation": "√TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "CaO"
+        ]
+      },
+      "description": "CaO的平方项，用于强调高CaO区间对硅铝体系熔融行为的二次非线性影响（如特定钙硅酸盐相的快速生成）。",
+      "notation": "(CaO)²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "CaO",
+          "K2O"
+        ]
+      },
+      "description": "钙碱比（CaO/K2O）。CaO为强碱性氧化物、K2O为强熔剂；该比值刻画石灰相对碱金属的主导程度，比值越大通常意味着灰分更偏耐火、软化温度倾向升高。",
+      "notation": "CaO / K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MgO",
+          "CaO"
+        ]
+      },
+      "description": "镁钙比（MgO/CaO）。MgO较CaO更耐火，该比值反映高熔点镁相对石灰的占比；比值增大通常指示灰分黏度与熔点提升，软化温度上升。",
+      "notation": "MgO / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TiO2",
+          "MgO"
+        ]
+      },
+      "description": "钛镁比（TiO2/MgO）。TiO2与MgO均属高熔点成分，二者的比例影响灰分的结构黏度与结晶相稳定性；TiO2相对MgO较高时往往提高灰分耐火性。",
+      "notation": "TiO₂ / MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "MgO"
+        ]
+      },
+      "description": "锰镁比（MnO/MgO）。MnO为较强熔剂、MgO为耐火氧化物；该比值衡量熔剂对耐火相的相对优势，比值升高通常降低软化温度。",
+      "notation": "MnO / MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "Si"
+        ]
+      },
+      "description": "硫酸根与硅的比值（SO3/Si）。SO3表征硫酸盐形成潜势，Si为硅源与硅酸盐网络的指示；该比值升高意味着硫酸盐低熔共熔的可能性增强，软化温度趋降。",
+      "notation": "SO₃ / Si",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "Standard_Ash"
+        ]
+      },
+      "description": "铁占灰比例（Fe2O3/Standard_Ash）。刻画铁氧化物在总灰分中的相对丰度；铁氧化物是典型强熔剂，比例越高通常灰分软化温度越低。",
+      "notation": "Fe₂O₃ / Standard Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "MgO"
+        ]
+      },
+      "description": "钠镁比（Na2O/MgO）。Na2O为强熔剂、MgO为耐火组分；比值增大表示熔剂优势增强，易形成低温共熔体，软化温度下降。",
+      "notation": "Na₂O / MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K2O",
+          "MgO"
+        ]
+      },
+      "description": "钾镁比（K2O/MgO）。K2O作为强熔剂与MgO的耐火性相对比，反映碱金属对灰分熔融行为的影响；比值越大通常降低软化温度。",
+      "notation": "K₂O / MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "MgO",
+          "TiO2"
+        ]
+      },
+      "description": "耐火总量指示（MgO + TiO2）。两者均为高熔点、增黏相成分，其和可作为灰分耐火性的线性近似指标，值越大软化温度倾向升高。",
+      "notation": "MgO + TiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "MnO"
+        ]
+      },
+      "description": "酸-熔剂差（SiO2 − MnO）。SiO2为网络形成酸性氧化物、MnO为熔剂；差值越大表明酸性网络优势更强，通常软化温度升高。",
+      "notation": "SiO₂ − MnO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "SiO2",
+          "MgO"
+        ]
+      },
+      "description": "酸-耐火协同（SiO2 × MgO）。同时提升网络形成（SiO2）与耐火性（MgO）的乘积，刻画其协同提高黏度与熔点的潜在非线性效应。",
+      "notation": "SiO₂ × MgO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "Fe2O3",
+          "MgO"
+        ]
+      },
+      "description": "铁-镁限制因子（min(Fe2O3, MgO)）。反映铁熔剂与镁耐火相中较低含量的限制作用；在初始软化阶段，限制性成分的不足可能主导熔融阈值。",
+      "notation": "min(Fe₂O₃, MgO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "Al2O3",
+          "CaO"
+        ]
+      },
+      "description": "铝-钙主导量（max(Al2O3, CaO)）。Al2O3（耐火）与CaO（熔剂）二者中占比最高者可能主导灰分的相结构与软化行为，捕捉主导成分的影响。",
+      "notation": "max(Al₂O₃, CaO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Na2O",
+          "TiO2"
+        ]
+      },
+      "description": "钠-钛均衡指标（mean(Na2O, TiO2)）。Na2O（强熔剂）与TiO2（耐火）两端成分的平均，刻画对软化温度的综合平衡效应。",
+      "notation": "(Na₂O + TiO₂) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "MgO"
+        ]
+      },
+      "description": "MgO的对数变换。用于刻画高含量MgO对软化温度的边际效应递减与非线性关系，避免线性模型过拟合。",
+      "notation": "ln(MgO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "MnO"
+        ]
+      },
+      "description": "MnO的常用对数变换（log10）。MnO作为熔剂对软化温度影响常呈非线性，对数变换可增强模型对低-中含量区间的敏感性。",
+      "notation": "log₁₀(MnO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Al2O3",
+          "MnO"
+        ]
+      },
+      "description": "铝锰比（Al2O3/MnO）。Al2O3为强耐火氧化物，MnO为熔剂；比值越大通常指示灰分更偏耐火、软化温度提高。",
+      "notation": "Al₂O₃ / MnO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SiO2",
+          "MnO"
+        ]
+      },
+      "description": "硅锰比（SiO2/MnO）。网络形成氧化物与熔剂的对抗性比值，用于衡量低熔共熔体生成的难易度；比值升高一般提升软化温度。",
+      "notation": "SiO₂ / MnO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Ti",
+          "Al"
+        ]
+      },
+      "description": "元素Ti与Al的总量（Ti + Al）。作为灰分中耐火矿物（如金红石/锐钛矿、粘土矿物）的元素指示和，反映潜在耐火成分丰度，对软化温度正向关联。",
+      "notation": "Ti + Al",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Standard_Ash",
+          "TS"
+        ]
+      },
+      "description": "灰分-硫综合指标（mean(Standard_Ash, TS)）。总灰分与总硫的平均量度，刻画无机负荷与硫酸盐生成潜力的综合影响，对软化温度的整体调节作用。",
+      "notation": "(Standard Ash + TS) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "Na2O"
+        ]
+      },
+      "description": "锰氧化物与钠氧化物的比值。MnO与Na2O都是强助熔组分，但作用机理不同：Na2O更易破坏硅酸盐网络、显著降低熔融温度；MnO则参与形成低熔点玻璃相与铁锰复合物。该比值刻画两类助熔效应的相对强度，对灰分软化温度的下降程度具有指示意义。",
+      "notation": "MnO / Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "K2O"
+        ]
+      },
+      "description": "MnO与K2O的比值。K2O作为碱金属氧化物能大幅降低黏度和软化温度；MnO为过渡金属氧化物，可与硅铝体系形成低熔物。二者比例反映碱金属与过渡金属助熔的竞争关系，对提前软化的风险进行评估。",
+      "notation": "MnO / K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TS",
+          "CaO"
+        ]
+      },
+      "description": "总硫与氧化钙的比值。CaO可与硫形成硫酸盐（如CaSO₄）或与硅酸盐竞争相形成，影响低熔点盐类的生成与灰的软化行为。较高的TS/CaO意味着硫化反应潜力更强，可能促成低熔盐相并降低软化温度。",
+      "notation": "TS / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Ca",
+          "SiO2"
+        ]
+      },
+      "description": "元素钙与二氧化硅的比值。该比值体现灰分中基本性阳离子（Ca）相对主要成网酸性氧化物（SiO₂）的供给水平，反映基本性/酸性平衡，对黏度与软化温度的调控至关重要。",
+      "notation": "Ca / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "GSAsh_Dry",
+          "SiO2"
+        ]
+      },
+      "description": "干灰分与SiO₂的比值。用于衡量灰分总体含量相对于网络前驱体SiO₂的“稀释”或“富集”程度；较高比值通常意味着更多非硅酸盐相参与，可能促进形成低熔复合相并影响软化温度。",
+      "notation": "GSAsh_Dry / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "MnO",
+          "SiO2"
+        ]
+      },
+      "description": "MnO与SiO₂总量。MnO可作为网络修饰剂与SiO₂共同参与玻璃相形成，其总量反映潜在低熔玻璃相规模，对早期软化的可能性具有参考意义。",
+      "notation": "MnO + SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "MnO",
+          "CaO"
+        ]
+      },
+      "description": "MnO与CaO的合量。两者均为助熔的基本/过渡金属氧化物，该和值代表总体助熔强度，通常与软化温度降低相关。",
+      "notation": "MnO + CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "Fe2O3",
+          "SO3"
+        ]
+      },
+      "description": "Fe₂O₃减SO₃。铁氧化物倾向提高黏度与熔点，而硫酸根形成的低熔盐类倾向降低软化温度；该差值度量两者对软化的相反效应净值。",
+      "notation": "Fe₂O₃ − SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "SO3"
+        ]
+      },
+      "description": "SiO₂减SO₃。SiO₂是主要网络前体，提高灰的高温稳定性；SO₃促进低熔盐生成。差值表示网络形成能力对低熔盐效应的相对优势。",
+      "notation": "SiO₂ − SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "TiO2",
+          "SO3"
+        ]
+      },
+      "description": "TiO₂与SO₃的乘积。TiO₂为难熔氧化物，SO₃与碱金属生成低熔盐；乘积刻画两者可能的协同或拮抗影响强度，对软化温度的非线性变化具有解释力。",
+      "notation": "TiO₂ × SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "MnO",
+          "CaO"
+        ]
+      },
+      "description": "MnO与CaO的乘积。代表两类助熔氧化物的协同强度，强调同时高含量时对硅铝网络的破坏与低熔复合相形成能力，往往与软化温度显著降低相关。",
+      "notation": "MnO × CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "Na2O",
+          "SO3"
+        ]
+      },
+      "description": "Na₂O与SO₃的乘积。衡量生成Na₂SO₄等低熔盐的潜力与规模，该盐在灰渣中显著降低熔融与软化温度，乘积可作为此效应强度的代理。",
+      "notation": "Na₂O × SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "TS",
+          "MnO"
+        ]
+      },
+      "description": "总硫与MnO的均值。综合硫酸盐形成趋势（TS）与过渡金属助熔作用（MnO），用于刻画两类降熔机制的平均强度，对软化温度的整体影响更平滑稳健。",
+      "notation": "(TS + MnO) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "GSAsh",
+          "SO3"
+        ]
+      },
+      "description": "GSAsh与SO₃的最大值。用于识别主导软化行为的因素：若SO₃高则低熔盐效应更显著；若灰分总体高则复合相规模更大。取最大可以强调主控风险源。",
+      "notation": "max(GSAsh, SO₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "Na2O",
+          "SO3"
+        ]
+      },
+      "description": "Na₂O与SO₃的最小值。依据受限试剂原理，生成Na₂SO₄的上限受两者中较小者控制；该特征更贴近实际盐相生成能力，从而影响软化温度。",
+      "notation": "min(Na₂O, SO₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "Standard_Ash"
+        ]
+      },
+      "description": "标准灰分的平方根变换。缓解灰分含量的偏态与尺度效应，提升与软化温度的线性可建模性，捕捉灰分规模对熔融行为的非线性影响。",
+      "notation": "√Standard_Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sqrt",
+        "operands": [
+          "K2O"
+        ]
+      },
+      "description": "K₂O的平方根。对强降熔的碱金属氧化物进行非线性缩放，避免其在模型中主导权重，同时保留对软化温度的显著影响。",
+      "notation": "√K₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "Si"
+        ]
+      },
+      "description": "元素硅的自然对数。Si作为网络形成元素的代表，其对数变换捕捉与灰的结构稳定性相关的尺度效应与递减边际影响。",
+      "notation": "ln(Si)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "Fe"
+        ]
+      },
+      "description": "元素铁的自然对数。铁在灰中可进入氧化物与尖晶石相，提升熔点与黏度；对数变换增强与软化温度的可塑关系，减少极端值影响。",
+      "notation": "ln(Fe)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "Ca"
+        ]
+      },
+      "description": "元素钙的常用对数。Ca的碱性与硫酸盐/硅酸盐反应能力显著影响软化温度；log₁₀变换用于刻画其影响的数量级差异与非线性响应。",
+      "notation": "log₁₀(Ca)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SiO2",
+          "Ca"
+        ]
+      },
+      "description": "硅酸根相对钙元素的丰度比，反映酸性骨架相（SiO2）对碱土元素（Ca）的主导程度，酸多则灰软化温度通常升高。",
+      "notation": "SiO₂ / Ca",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Al2O3",
+          "CaO"
+        ]
+      },
+      "description": "铝酸盐与石灰的酸碱比，衡量酸性氧化物对碱性氧化物的约束作用，酸/碱比高常对应更高的软化温度。",
+      "notation": "Al₂O₃ / CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "GSAsh"
+        ]
+      },
+      "description": "硫酸盐氧化物在灰分中的相对负荷，SO3相对灰分越高，易生成低熔点硫酸盐，软化温度可能降低。",
+      "notation": "SO₃ / GSAsh",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TS",
+          "Standard_Ash"
+        ]
+      },
+      "description": "煤中全硫相对标准灰分的密度指标，指示硫对灰分相组成的影响强度，硫负荷大时易形成低熔相。",
+      "notation": "TS / Standard_Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Fe2O3",
+          "GSAsh"
+        ]
+      },
+      "description": "铁氧化物在灰分中的相对比例，铁可作为网络修饰剂并与碱金属共同降熔，比例越大软化温度可能越低。",
+      "notation": "Fe₂O₃ / GSAsh",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "SO3"
+        ]
+      },
+      "description": "锰与硫酸盐的配比，反映锰参与的低熔锰硅酸盐或硫酸盐相的潜力，调制软化温度。",
+      "notation": "MnO / SO₃",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "GSAsh_Dry",
+          "TS"
+        ]
+      },
+      "description": "干基灰分对全硫的比值，体现单位硫对应的灰分量，灰分越多且硫越低通常有助于提高熔融温度。",
+      "notation": "GSAsh_Dry / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Si",
+          "Al"
+        ]
+      },
+      "description": "元素态Si/Al比，刻画黏土矿物（高Al）与石英/长石（高Si）的相对组成，高Si/Al往往提升灰的网络结构与软化温度。",
+      "notation": "Si / Al",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Ca",
+          "Mg"
+        ]
+      },
+      "description": "碱土元素Ca/Mg之比，影响方解石/白云石来源碱度与生成低熔碳酸盐-硅酸盐相的趋势。",
+      "notation": "Ca / Mg",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "Ti"
+        ]
+      },
+      "description": "Ti含量的常用对数变换，平滑重尾分布；Ti多为惰性高熔相（如金红石/钛铁矿）的指示，有助于提升软化温度。",
+      "notation": "log₁₀(Ti)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "SO3",
+          "CaO"
+        ]
+      },
+      "description": "硫酸盐氧化物与石灰的总量，描述硫酸钙等低熔共晶潜力，二者协同时易降熔。",
+      "notation": "SO₃ + CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "SiO2",
+          "CaO"
+        ]
+      },
+      "description": "主要骨架相（SiO2）与主要碱性相（CaO）总量，刻画形成钙硅酸盐的物质基础，对软化温度具有决定性影响。",
+      "notation": "SiO₂ + CaO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "SO3",
+          "CaO"
+        ]
+      },
+      "description": "硫酸盐与石灰的限量因子，代表潜在硫酸钙生成的受限组分；限量越低，低熔相形成更受限制。",
+      "notation": "min(SO₃, CaO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Na2O",
+          "MnO"
+        ]
+      },
+      "description": "碱金属氧化物与过渡金属氧化物的总量，指示形成低熔钠锰硅酸盐等相的潜在程度。",
+      "notation": "Na₂O + MnO",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "SiO2",
+          "Na2O"
+        ]
+      },
+      "description": "硅酸根与碱金属的交互项，反映钠硅酸盐（如Na₂SiO₃）形成倾向，常与软化温度显著相关。",
+      "notation": "SiO₂ × Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "MgO",
+          "Na2O"
+        ]
+      },
+      "description": "MgO与Na₂O的交互项，刻画镁-钠复合修饰网络的效应，可能促成低熔相生成。",
+      "notation": "MgO × Na₂O",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mul",
+        "operands": [
+          "MnO",
+          "SiO2"
+        ]
+      },
+      "description": "锰与硅的交互项，指示锰硅酸盐相形成能力；该类相常具有较低熔点，影响软化温度。",
+      "notation": "MnO × SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "TS",
+          "GSAsh"
+        ]
+      },
+      "description": "硫与灰分的平均水平，综合表征硫负荷与无机物含量对熔融行为的共同影响。",
+      "notation": "(TS + GSAsh) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "MnO",
+          "Fe2O3"
+        ]
+      },
+      "description": "以过渡金属氧化物中较高者为代表的通量强度指标，捕捉主导的红氧缓冲与降熔效应。",
+      "notation": "max(MnO, Fe₂O₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "GSAsh_Dry"
+        ]
+      },
+      "description": "干基灰分的平方，刻画高灰分区间对黏度与软化行为的非线性放大效应。",
+      "notation": "(GSAsh_Dry)²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "TS",
+          "SiO2"
+        ]
+      },
+      "description": "硫与二氧化硅的比值。硫（以TS表示）易与碱金属形成低熔点硫酸盐，而SiO₂为主要酸性骨架、提升熔点；该比值可衡量低熔相形成倾向相对于硅酸网络强度的相对权衡。",
+      "notation": "TS / SiO₂",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "SO3",
+          "Standard_Ash"
+        ]
+      },
+      "description": "硫酸根（SO₃）在标准灰分中的相对比例。SO₃与Na、K等形成低熔点盐，有利于早期软化；该比例反映灰分中“硫酸盐型”助熔组分的权重。",
+      "notation": "SO₃ / Standard_Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "MnO",
+          "TS"
+        ]
+      },
+      "description": "锰氧化物相对硫的比值。MnO可参与形成更耐火的尖晶石类相，而硫倾向形成低熔盐，相对提高该比值可能提升软化温度。",
+      "notation": "MnO / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na",
+          "TS"
+        ]
+      },
+      "description": "元素钠与总硫的比值。Na与硫易生成Na₂SO₄等低熔盐，Na/TS刻画钠硫相互作用强度，对软化起始温度有指示意义。",
+      "notation": "Na / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K",
+          "TS"
+        ]
+      },
+      "description": "元素钾与总硫的比值。钾与硫酸根形成的钾盐具有较低熔点，K/TS可度量钾主导的硫酸盐助熔潜力。",
+      "notation": "K / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Ti",
+          "TS"
+        ]
+      },
+      "description": "元素钛与总硫的比值。钛相关相（如金红石）更耐火，而硫促熔，该比值刻画耐火相对助熔的平衡，关联软化温度。",
+      "notation": "Ti / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Na",
+          "Ca"
+        ]
+      },
+      "description": "元素钠与钙的总量。Na为强助熔、Ca可作为碱性修正剂并影响硅酸盐结构；两者之和表征灰分总体碱性潜力。",
+      "notation": "Na + Ca",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "K",
+          "Ca"
+        ]
+      },
+      "description": "元素钾与钙的总量。K为强助熔，Ca在不同配比下既能降熔也能提高黏度；总量可指示基础性组分对软化的整体影响。",
+      "notation": "K + Ca",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Add",
+        "operands": [
+          "Si",
+          "Ti"
+        ]
+      },
+      "description": "元素硅与钛总量。Si与Ti相关相通常提升熔点与黏度，二者之和刻画网络形成与耐火相的总体水平。",
+      "notation": "Si + Ti",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Sub",
+        "operands": [
+          "SiO2",
+          "Na"
+        ]
+      },
+      "description": "SiO₂与元素Na的差值。该差值可近似反映酸性骨架相对强助熔阳离子的“剩余酸度”，与灰分抵抗早期软化的能力相关。",
+      "notation": "SiO₂ − Na",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "Na2O",
+          "Standard_Ash"
+        ]
+      },
+      "description": "Na₂O在标准灰分中的相对含量。Na₂O是强助熔氧化物，其相对灰分含量越高，越可能降低软化温度。",
+      "notation": "Na₂O / Standard_Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "K2O",
+          "Standard_Ash"
+        ]
+      },
+      "description": "K₂O在标准灰分中的相对含量。K₂O与SiO₂形成低熔点钾硅酸盐，相对比例越高通常意味着更低的软化温度。",
+      "notation": "K₂O / Standard_Ash",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Div",
+        "operands": [
+          "GSAsh",
+          "TS"
+        ]
+      },
+      "description": "灰分产率相对总硫的比值。高灰分但低硫有利于减少硫酸盐低熔相比例，该比值可指示硫主导助熔效应在整体灰分中的权重。",
+      "notation": "GSAsh / TS",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "SiO2",
+          "MgO"
+        ]
+      },
+      "description": "SiO₂与MgO的平均值。SiO₂为酸性框架、MgO为基础性修正剂，二者平均可平滑表示酸-基配比对软化的综合影响。",
+      "notation": "(SiO₂ + MgO) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Mean",
+        "operands": [
+          "Al2O3",
+          "CaO"
+        ]
+      },
+      "description": "Al₂O₃与CaO的平均值。Al₂O₃提升黏度与熔点，CaO为基础性氧化物；平均值刻画酸-基稳定化的综合水平。",
+      "notation": "(Al₂O₃ + CaO) / 2",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Max",
+        "operands": [
+          "TiO2",
+          "MnO"
+        ]
+      },
+      "description": "TiO₂与MnO两种相对耐火氧化物的最大值。较高的这一组分可增强耐火相比例，对提升软化温度有正向作用。",
+      "notation": "max(TiO₂, MnO)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Min",
+        "operands": [
+          "SO3",
+          "TiO2"
+        ]
+      },
+      "description": "SO₃与TiO₂的最小值。该下限刻画“助熔（SO₃）”与“耐火（TiO₂）”两端中的薄弱环节，对软化起点更敏感。",
+      "notation": "min(SO₃, TiO₂)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Squ",
+        "operands": [
+          "GSAsh"
+        ]
+      },
+      "description": "灰分产率的平方。非线性变换以增强高灰分样品对软化温度的影响权重，捕捉灰分含量与黏度/相组成的二次效应。",
+      "notation": "(GSAsh)²",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Ln",
+        "operands": [
+          "SO3"
+        ]
+      },
+      "description": "SO₃的自然对数。对右偏的硫酸根分布进行压缩，提升与软化温度的线性可拟合性，表征硫酸盐助熔强度的对数尺度。",
+      "notation": "ln(SO₃)",
+      "model_name": "gpt-5",
+      "height": 1
+    },
+    {
+      "tree": {
+        "operator": "Log",
+        "operands": [
+          "Na2O"
+        ]
+      },
+      "description": "Na₂O的常用对数。Na₂O是强助熔氧化物，log10变换平滑极端高值样本的影响，有助于更稳定地刻画其对软化温度的作用。",
+      "notation": "log₁₀(Na₂O)",
+      "model_name": "gpt-5",
+      "height": 1
+    }
+  ]
+}

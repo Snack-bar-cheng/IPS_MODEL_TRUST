@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.env
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# 运行结果与实验输出（勿提交）
+配置/
+**/baseline_result_*/
+**/dnn_result_*/
+gps_result_*/
+**/evolution_process/
+**/shap_output/
+**/best_tree_visualization/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 可选：本地 conda/pip 缓存
+*.log

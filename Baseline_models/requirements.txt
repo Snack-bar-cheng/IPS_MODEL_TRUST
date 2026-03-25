@@ -1,0 +1,18 @@
+# 核心数据处理和科学计算
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# 机器学习框架
+scikit-learn>=1.0.0
+xgboost>=1.5.0
+lightgbm>=3.3.0
+
+# 深度学习框架
+torch>=2.0.0
+
+# 可视化
+matplotlib>=3.5.0
+
+# 可选依赖（CatBoost，如果需要使用）
+# catboost>=1.0.0

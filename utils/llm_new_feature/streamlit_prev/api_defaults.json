@@ -1,0 +1,21 @@
+{
+  "api_key": "sk-ba5wabFMCaXe5O4LyhIxyh9JtWQXbuMDhGEWDHrRwRMCCbMt",
+  "api_base_url": "https://api.kwwai.top",
+  "model": "gemini-3-pro-all",
+  "timeout": 500,
+  "temperature": 0.8,
+  "enable_token_limit": false,
+  "max_tokens": null,
+  "max_retries": 5,
+  "retry_delay": 2,
+  "available_models": [
+    "gemini-3-pro-all",
+    "gpt-3.5-turbo",
+    "gpt-4",
+    "gpt-4-turbo",
+    "gpt-5",
+    "qwen-max",
+    "grok-4",
+    "deepseek-v3.1"
+  ]
+}

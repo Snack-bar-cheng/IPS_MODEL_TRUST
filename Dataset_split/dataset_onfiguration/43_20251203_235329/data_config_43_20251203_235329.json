@@ -1,0 +1,15 @@
+{
+  "start_time": "2026-03-24 11:00:27",
+  "end_time": "2026-03-24 11:00:27",
+  "all_dataset_path": "C:\\Users\\lookm\\Desktop\\Gps_副本2\\Dataset_split\\ash_fusion_dataset_cleaned.csv",
+  "all_dataset_columns": ["Sample_ID", "Ash_Deformation", "Ash_Softening", "Ash_Fluid", "SiO2", "Al2O3", "Fe2O3", "CaO", "MgO", "Na2O", "K2O", "TiO2", "SO3", "Si", "Al", "Fe", "Ca", "Mg", "Na", "K", "Ti", "TS", "GSAsh", "GSAsh_Dry", "Standard_Ash", "MnO"],
+  "random_seed": 43,
+  "set_ratio": 0.8,
+  "min_p_value": 0.2704143979808486,
+  "avg_p_value": 0.6715214429366049,
+  "selected_feature": ["SiO2", "Al2O3", "Fe2O3", "CaO", "MgO", "Na2O", "K2O", "TiO2", "SO3", "Si", "Al", "Fe", "Ca", "Mg", "Na", "K", "Ti", "TS", "GSAsh", "GSAsh_Dry", "Standard_Ash", "MnO"],
+  "target_column": ["Ash_Deformation", "Ash_Softening", "Ash_Fluid"],
+  "train_set_path": "C:\\Users\\lookm\\Desktop\\Gps_副本2\\Dataset_split\\dataset_onfiguration\\43_20251203_235329\\trainset_43_20251203_235329.csv",
+  "test_set_path": "C:\\Users\\lookm\\Desktop\\Gps_副本2\\Dataset_split\\dataset_onfiguration\\43_20251203_235329\\testset_43_20251203_235329.csv",
+  "ks_plots_pdf_path": "C:\\Users\\lookm\\Desktop\\Gps_副本2\\Dataset_split\\dataset_onfiguration\\43_20251203_235329\\ks_plots\\ks_test_all_features.pdf"
+}
