@@ -1,10 +1,25 @@
 # Genetic Programming (GP) Modeling Toolkit
 
-**中文说明：** [README.zh.md](README.zh.md)
-
 ## Overview
 
 This toolkit performs symbolic regression with Genetic Programming (GP). It supports multiple initialization, selection, crossover, and mutation strategies, as well as advanced features such as LLM-guided initialization, dynamic branch expansion with High primitives, and residual fitting.
+
+## LLM feature generation (Streamlit)
+
+We ship a **browser-based LLM feature studio** so you can draft symbolic feature trees (JSON) separately from the GP run. The UI lives under `utils/llm_new_feature/streamlit_prev/` and talks to your configured LLM to propose features with descriptions and structured tree operands—ready to feed GP initialization via `llm_feature_path` in `main.py`.
+
+**Prerequisites:** `pip install -r requirements.txt` (includes Streamlit and HTTP client deps). Configure API keys or endpoints in `utils/llm_new_feature/llm_api.py` and/or `streamlit_prev/api_defaults.json` as needed.
+
+**Start the app** (from repository root):
+
+```bash
+cd utils/llm_new_feature/streamlit_prev
+streamlit run app.py
+```
+
+Streamlit will print a local URL (e.g. `http://localhost:8501`). Upload your CSV, pick targets and feature columns, set how many candidates to generate, then export JSON—typically under `utils/llm_new_feature/json_save/`. Point `main.py` at those files when `initialization.llm` is enabled.
+
+More detail: `utils/llm_new_feature/README.md`.
 
 ## Repository layout
 

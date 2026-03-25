@@ -1,7 +1,5 @@
 # Dataset_split
 
-**English:** [README.en.md](README.en.md)
-
 **用途**：把 CSV 划成训练/测试集，对特征做 KS 检验；在输出目录生成 KS 验证图，并把路径写入 `data_config_*.json`。
 
 ## 目录布局

@@ -1,7 +1,5 @@
 # LLM特征生成工具
 
-**English:** [README.en.md](README.en.md)
-
 ## 概述
 
 本模块将LLM特征生成与GP运行分离，提供独立的特征生成工具。
